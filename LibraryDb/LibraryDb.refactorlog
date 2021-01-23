@@ -14,4 +14,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="BookRentald" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="b2b38b1a-4e40-45f2-b821-8441a3b089af" ChangeDateTime="01/19/2021 07:15:52">
+    <Property Name="ElementName" Value="[dbo].[Penalty].[RealReturnDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Penalty]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PenaltyDate" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4a51cc30-da2c-4eb5-9ea1-ea1d12968b92" ChangeDateTime="01/20/2021 12:46:27">
+    <Property Name="ElementName" Value="[dbo].[BookRent].[ReturnDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BookRent]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ExpectedReturnDate" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2d5f124b-1125-4d9e-9ff6-963ee37cc872" ChangeDateTime="01/20/2021 12:49:22">
+    <Property Name="ElementName" Value="[dbo].[Penalty].[PenaltyDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Penalty]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PaymentDate" />
+  </Operation>
 </Operations>

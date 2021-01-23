@@ -1,11 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[spBookRent_AddBookRent]
 	@BookId int,
-	@UserId int,
-	@ReturnDate datetime2
+	@UserId NVARCHAR (450),
+	@ExpectedReturnDate datetime2
 AS
 BEGIN
 	SET NOCOUNT ON;
-
-	INSERT INTO dbo.BookRent(BookId, UserId, ReturnDate)
-	VALUES (@BookId, @UserId, @ReturnDate);
+	INSERT INTO dbo.BookRent(BookId, UserId,ExpectedReturnDate)
+	VALUES (@BookId, @UserId, @ExpectedReturnDate);
 END

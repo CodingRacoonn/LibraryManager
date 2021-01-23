@@ -76,7 +76,6 @@
     <Build Include="dbo\Stored Procedures\spUser_GetById.sql" />
     <Build Include="dbo\Stored Procedures\spBook_GetAllAuthors.sql" />
     <Build Include="dbo\Stored Procedures\spBookRent_GetByUserId.sql" />
-    <Build Include="dbo\Stored Procedures\spPenalty_GetByUserId.sql" />
     <Build Include="dbo\Stored Procedures\SpBookGenre_GetByBookId.sql" />
     <Build Include="dbo\Stored Procedures\spUser_AddUser.sql" />
     <Build Include="dbo\Stored Procedures\spBook_AddBook.sql" />
@@ -84,8 +83,14 @@
     <Build Include="dbo\Stored Procedures\spGenre_AddGenre.sql" />
     <Build Include="dbo\Stored Procedures\spPenalty_AddPenalty.sql" />
     <Build Include="dbo\Stored Procedures\spBookGenre_AddBookGenre.sql" />
+    <Build Include="dbo\Stored Procedures\spPenalty_GetByUserId.sql" />
+    <Build Include="dbo\Stored Procedures\spBookRent_ProlongReturnDate.sql" />
+    <Build Include="dbo\Stored Procedures\spBookRent_BookReturned.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="LibraryDb.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PublishLocations\LibraryDb.publish.xml" />
   </ItemGroup>
 </Project>

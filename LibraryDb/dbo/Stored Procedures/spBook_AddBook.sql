@@ -6,7 +6,6 @@
 	@Description nvarchar(MAX),
 	@ReleaseDate datetime2,
 	@Quantity int
-
 AS
 BEGIN
 	SET NOCOUNT ON;
