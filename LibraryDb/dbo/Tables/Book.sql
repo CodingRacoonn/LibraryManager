@@ -7,5 +7,6 @@
     [AuthorLastName] NVARCHAR(50) NOT NULL, 
     [Publisher] NVARCHAR(50) NOT NULL, 
     [ReleaseDate] DATETIME2 NOT NULL, 
-    [Quantity] INT NOT NULL
+    [Quantity] INT NOT NULL,
+    [AvailableQuantity] INT NOT NULL
 )

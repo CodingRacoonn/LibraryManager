@@ -11,31 +11,30 @@ namespace ApiLibraryControl.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BookGenreController : ControllerBase
+    public class BookOrderController : ControllerBase
     {
-        private readonly IBookGenreData _data;
+        private readonly IBookOrderData _data;
 
-        public BookGenreController(IBookGenreData data)
+        public BookOrderController(IBookOrderData data)
         {
             _data = data;
         }
 
-        [Route("AddBookGenre")]
+
+        [Route("AddBookOrder")]
         [HttpPost]
-        public void AddBookGenre(BookGenreModel model)
+        public void AddBookOrder(BookOrderModel model)
         {
-            _data.AddBookGenre(model.GenreId, model.BookId);
+            _data.AddBookOrder(model);
         }
 
 
-        [Route("GetByBookId/{id}")]
+        [Route("GetByUserId/{userid}")]
         [HttpGet]
-        public List<GenreModel> GetByBookId(int bookId)
+        public List<BookOrderInfoModel> GetByUserId(string userId)
         {
-            var output = _data.GetByBookId(bookId);
+            var output = _data.GetByUserId(userId);
             return output;
         }
-
-
     }
 }

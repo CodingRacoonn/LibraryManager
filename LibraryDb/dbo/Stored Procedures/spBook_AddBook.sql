@@ -5,11 +5,12 @@
 	@Publisher nvarchar(50),
 	@Description nvarchar(MAX),
 	@ReleaseDate datetime2,
-	@Quantity int
+	@Quantity int,
+	@AvailableQuantity int
 AS
 BEGIN
 	SET NOCOUNT ON;
 
-	INSERT INTO dbo.Book(Title, AuthorFirstName, AuthorLastName, Publisher, [Description], ReleaseDate, Quantity)
-	VALUES (@Title, @AuthorFirstName, @AuthorLastName, @Publisher, @Description, @ReleaseDate, @Quantity);
+	INSERT INTO dbo.Book(Title, AuthorFirstName, AuthorLastName, Publisher, [Description], ReleaseDate, Quantity,AvailableQuantity)
+	VALUES (@Title, @AuthorFirstName, @AuthorLastName, @Publisher, @Description, @ReleaseDate, @Quantity,@AvailableQuantity);
 END

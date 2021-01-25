@@ -6,7 +6,7 @@ namespace ApiLibraryControl.Library.DataAccess
 {
     public interface IBookData
     {
-        void AddBook(string title, string description, string authorFirstName, string authorLastName, string publisher, DateTime releaseDate, int quantity);
+        void AddBook(string title, string description, string authorFirstName, string authorLastName, string publisher, DateTime releaseDate, int quantity, int availableQuantity);
         List<AuthorDbModel> GetAllAuthors();
         List<BookModel> GetAllBooks();
         List<BookModel> GetByAuthor(string authorFirstName, string authorLastName);

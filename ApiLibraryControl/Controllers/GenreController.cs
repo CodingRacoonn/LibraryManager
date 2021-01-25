@@ -22,7 +22,7 @@ namespace ApiLibraryControl.Controllers
 
         [Route("AddGenre")]
         [HttpPost]
-        public void AddGenre([FromBody] GenreModel model)
+        public void AddGenre(GenreModel model)
         {
             _data.AddGenre(model);
         }

@@ -32,30 +32,32 @@ namespace ApiLibraryControl.Controllers
         public async Task<IActionResult> Privacy()
         {
 
-            //var role = await _roleManager.FindByNameAsync("Cashier");
+            //login: test@gmail.com
+            //hasło: Qwe12.
+
+            //var role = await _roleManager.FindByNameAsync("Manager");
             //var result = await _roleManager.DeleteAsync(role);
 
 
 
 
-            //string[] roles = { "Admin", "Manager", "Cashier" };
+            //string[] roles = { "Admin", "Librarian", "Client" };
 
-            //foreach (var role in roles)
+            //foreach (var rolem in roles)
             //{
-            //    bool roleExist = await _roleManager.RoleExistsAsync(role);
+            //    bool roleExist = await _roleManager.RoleExistsAsync(rolem);
 
             //    if (roleExist == false)
             //    {
-            //        await _roleManager.CreateAsync(new IdentityRole(role));
+            //        await _roleManager.CreateAsync(new IdentityRole(rolem));
             //    }
             //}
 
-            //var user = await _userManager.FindByEmailAsync("jo@jo.pl");
+            //var user = await _userManager.FindByEmailAsync("test@gmail.com");
 
             //if (user != null)
             //{
             //    await _userManager.AddToRoleAsync(user, "Admin");
-            //    await _userManager.AddToRoleAsync(user, "Cashier");
             //}
             return View();
         }

@@ -23,7 +23,7 @@ namespace ApiLibraryControl.Controllers
 
         [Route("AddBookRent")]
         [HttpPost]
-        public void AddBookRent([FromBody] BookRentModel model)
+        public void AddBookRent(BookRentModel model)
         {
             _data.AddBookRent(model);
         }

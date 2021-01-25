@@ -1,4 +1,5 @@
 ﻿using ApiLibraryControl.Data;
+using ApiLibraryControl.Library.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace ApiLibraryControl.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
     public class TokenController : ControllerBase
     {
@@ -29,10 +31,14 @@ namespace ApiLibraryControl.Controllers
             _config = config;
         }
 
-        [Route("/token")]
+
+        [Route("create")]
         [HttpPost]
-        public async Task<IActionResult> Create(string username, string password, string grant_type)
+        public async Task<IActionResult> Create(PassModel model)
         {
+            string username = model.username;
+            string password = model.password;
+
             if (await IsValidUsernmeAndPassword(username, password))
             {
                 return new ObjectResult(await GenerateToken(username));

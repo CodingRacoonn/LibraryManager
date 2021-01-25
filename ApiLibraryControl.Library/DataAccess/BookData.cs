@@ -44,9 +44,9 @@ namespace ApiLibraryControl.Library.DataAccess
             return output;
         }
 
-        public void AddBook(string title, string description, string authorFirstName, string authorLastName, string publisher, DateTime releaseDate, int quantity)
+        public void AddBook(string title, string description, string authorFirstName, string authorLastName, string publisher, DateTime releaseDate, int quantity, int availableQuantity)
         {
-            _dataAccess.SaveData("spBook_AddBook", new { title, description, authorFirstName, authorLastName, publisher, releaseDate, quantity }, "LibraryDatabase");
+            _dataAccess.SaveData("spBook_AddBook", new { title, description, authorFirstName, authorLastName, publisher, releaseDate, quantity, availableQuantity }, "LibraryDatabase");
         }
 
     }

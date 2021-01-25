@@ -23,7 +23,7 @@ namespace ApiLibraryControl.Controllers
 
         [Route("AddPenalty")]
         [HttpPost]
-        public void AddPenalty([FromBody] PenaltyModel model)
+        public void AddPenalty(PenaltyModel model)
         {
             //decimal paymentFromUI = model.Payment;
             //model.Payment = _data.AmountOfPayment(model.UserId, model.BookId);

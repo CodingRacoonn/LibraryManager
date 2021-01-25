@@ -4,7 +4,7 @@
 AS
 BEGIN
 	SET NOCOUNT ON
-	SELECT Id, Title, [Description], AuthorFirstName, AuthorLastName, Publisher, ReleaseDate, Quantity
+	SELECT Id, Title, [Description], AuthorFirstName, AuthorLastName, Publisher, ReleaseDate, Quantity, AvailableQuantity
 	FROM dbo.Book
 	WHERE AuthorFirstName = @AuthorFirstName OR @AuthorLastName = AuthorLastName
 END

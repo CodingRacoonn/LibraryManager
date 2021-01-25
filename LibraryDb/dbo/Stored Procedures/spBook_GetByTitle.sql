@@ -3,7 +3,7 @@
 AS
 BEGIN
 	SET NOCOUNT ON
-	SELECT Id, Title, [Description], AuthorFirstName, AuthorLastName, Publisher, ReleaseDate, Quantity
+	SELECT Id, Title, [Description], AuthorFirstName, AuthorLastName, Publisher, ReleaseDate, Quantity, AvailableQuantity
 	FROM dbo.Book
 	WHERE Title LIKE @Title + '%' OR Title LIKE @Title + ' %'
 END

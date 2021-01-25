@@ -1,5 +1,6 @@
 ﻿using ApiLibraryControl.Library.DataAccess;
 using ApiLibraryControl.Library.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ApiLibraryControl.Controllers
 {
+    [Authorize(Roles = "Admin,")]
     [Route("api/[controller]")]
     [ApiController]
     public class BookController : ControllerBase
@@ -61,9 +63,9 @@ namespace ApiLibraryControl.Controllers
 
         [Route("AddBook")]
         [HttpPost]
-        public void AddBook([FromBody] BookModel model)
+        public void AddBook(BookModel model)
         {
-            _data.AddBook(model.Title, model.Description, model.AuthorFirstName, model.AuthorLastName, model.Publisher, model.ReleaseDate, model.Quantity);
+            _data.AddBook(model.Title, model.Description, model.AuthorFirstName, model.AuthorLastName, model.Publisher, model.ReleaseDate, model.Quantity, model.AvailableQuantity);
         }
 
         //[HttpPost]

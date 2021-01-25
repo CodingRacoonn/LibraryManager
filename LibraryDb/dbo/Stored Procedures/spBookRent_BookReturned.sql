@@ -9,5 +9,8 @@ BEGIN
 	SET ReturnDate = @ReturnDate
 	WHERE BookId = @BookId and UserId = @UserId;
 	
+	UPDATE dbo.Book
+	SET AvailableQuantity = AvailableQuantity + 1
+	WHERE Id = @BookId;
 END
 
