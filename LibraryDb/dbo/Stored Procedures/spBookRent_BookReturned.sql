@@ -1,12 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[spBookRent_BookReturned]
 	@BookId int,
-	@UserId NVARCHAR (450),
-	@ReturnDate datetime2
+	@UserId NVARCHAR (450)
 AS
 BEGIN
 	SET NOCOUNT ON;
 	UPDATE BookRent
-	SET ReturnDate = @ReturnDate
+	SET ReturnDate = GETUTCDATE()
 	WHERE BookId = @BookId and UserId = @UserId;
 	
 	UPDATE dbo.Book

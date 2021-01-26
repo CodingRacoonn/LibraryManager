@@ -20,7 +20,7 @@ namespace ApiLibraryControl.Library.DataAccess
 
         public void AddPenalty(PenaltyModel model)
         {
-            _dataAccess.SaveData("spPenalty_AddPenalty", model, "LibraryDatabase");
+            _dataAccess.SaveData("spPenalty_AddPenalty", new { model.UserId, model.BookId, model.BookRentId, model.Payment } , "LibraryDatabase");
         }
 
         public List<PenaltyInfoModel> GetByUserId(string userId)

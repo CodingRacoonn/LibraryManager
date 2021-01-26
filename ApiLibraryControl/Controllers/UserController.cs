@@ -25,7 +25,6 @@ namespace ApiLibraryControl.Controllers
         [HttpPost]
         public void AddUser(UserModel model)
         {
-            //dbcontext cośtam takiego
             var Id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var Xd = User.FindFirstValue(ClaimTypes.Name);
            // _data.AddUser(model);

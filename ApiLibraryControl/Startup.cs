@@ -48,6 +48,7 @@ namespace ApiLibraryControl
             services.AddTransient<IGenreData, GenreData>();
             services.AddTransient<IPenaltyData, PenaltyData>();
             services.AddTransient<IUserData, UserData>();
+            services.AddTransient<IBookOrderData, BookOrderData>();
 
             //Authentication service using jwt
             services.AddAuthentication(options =>

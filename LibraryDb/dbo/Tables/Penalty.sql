@@ -7,6 +7,6 @@
     [PaymentDate] DATETIME2 NOT NULL DEFAULT getutcdate(), 
     [Payment] MONEY NOT NULL, 
     CONSTRAINT [FK_Penalty_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id]), 
-    CONSTRAINT [FK_Penalty_ToBookRent] FOREIGN KEY ([BookRentId]) REFERENCES [BookRent]([Id]), 
-    CONSTRAINT [FK_Penalty_ToBook] FOREIGN KEY ([BookId]) REFERENCES [Book]([Id])
+    CONSTRAINT [FK_Penalty_ToBookRent] FOREIGN KEY ([BookRentId]) REFERENCES [BookRent]([Id]) ON DELETE CASCADE, 
+    CONSTRAINT [FK_Penalty_ToBook] FOREIGN KEY ([BookId]) REFERENCES [Book]([Id]) 
 )

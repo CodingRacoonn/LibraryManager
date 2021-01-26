@@ -8,5 +8,5 @@ BEGIN
 	FROM dbo.BookRent AS br
 	INNER JOIN dbo.Book AS b ON br.BookId = b.Id
 	INNER JOIN dbo.[User] AS u ON br.UserId = u.Id
-	WHERE u.Id = @UserId;
+	WHERE u.Id = @UserId AND br.ReturnDate IS NULL
 END

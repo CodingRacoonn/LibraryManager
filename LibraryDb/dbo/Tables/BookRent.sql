@@ -7,6 +7,6 @@
     [ExpectedReturnDate] DATETIME2 NOT NULL, 
     [ReturnDate] DATETIME2 NULL, 
     [ProlongCount] INT NOT NULL DEFAULT 0, 
-    CONSTRAINT [FK_BookRent_ToBook] FOREIGN KEY ([BookId]) REFERENCES [Book]([Id]), 
-    CONSTRAINT [FK_BookRent_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
+    CONSTRAINT [FK_BookRent_ToBook] FOREIGN KEY ([BookId]) REFERENCES [Book]([Id]) ON DELETE CASCADE, 
+    CONSTRAINT [FK_BookRent_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id]) ON DELETE CASCADE
 )

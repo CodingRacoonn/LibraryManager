@@ -28,7 +28,7 @@ namespace ApiLibraryControl.Controllers
         }
 
 
-        [Route("GetByBookId/{id}")]
+        [Route("GetByBookId/{bookId}")]
         [HttpGet]
         public List<GenreModel> GetByBookId(int bookId)
         {

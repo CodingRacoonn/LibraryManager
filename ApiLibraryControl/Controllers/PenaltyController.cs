@@ -25,16 +25,16 @@ namespace ApiLibraryControl.Controllers
         [HttpPost]
         public void AddPenalty(PenaltyModel model)
         {
-            //decimal paymentFromUI = model.Payment;
-            //model.Payment = _data.AmountOfPayment(model.UserId, model.BookId);
+            decimal paymentFromUI = model.Payment;
+            model.Payment = _data.AmountOfPayment(model.UserId, model.BookId);
 
-            //if (paymentFromUI != model.Payment)
-            //{
-            //    // Error message about diffrence in calculation UI - API
-            //    // Get UserId
-            //}
+            if (paymentFromUI != model.Payment)
+            {
+                // Error message about diffrence in calculation UI - API
+                // Get UserId
+            }
 
-           _data.AddPenalty(model);
+            _data.AddPenalty(model);
         }
 
 

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ApiLibraryControl.Controllers
 {
-    [Authorize(Roles = "Admin,")]
+    //[Authorize(Roles = "Admin,")]
     [Route("api/[controller]")]
     [ApiController]
     public class BookController : ControllerBase
@@ -22,6 +22,7 @@ namespace ApiLibraryControl.Controllers
             _data = data;
         }
 
+        [Route("GetAllBooks")]
         [HttpGet]
         public List<BookModel> Get()
         {

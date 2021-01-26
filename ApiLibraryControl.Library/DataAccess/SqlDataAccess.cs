@@ -9,9 +9,14 @@ using System.Text;
 
 namespace ApiLibraryControl.Library.DataAccess
 {
-    public class SqlDataAccess : ISqlDataAccess
+    public class SqlDataAccess : IDisposable, ISqlDataAccess
     {
         private readonly IConfiguration _config;
+
+        //Transaction private fileds
+        private IDbConnection _connection;
+        private IDbTransaction _transaction;
+        private bool isClosed = false;
 
         public SqlDataAccess(IConfiguration config)
         {
@@ -43,6 +48,74 @@ namespace ApiLibraryControl.Library.DataAccess
             {
                 connection.Execute(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
             }
+        }
+
+
+        // Transaction
+
+
+        public void StartTransaction(string connectionStringName)
+        {
+            string connectionString = GetConnectionString(connectionStringName);
+
+            _connection = new SqlConnection(connectionString);
+            _connection.Open();
+
+            _transaction = _connection.BeginTransaction();
+
+            isClosed = false;
+        }
+
+
+        public List<T> LoadDataInTransaction<T, U>(string storedProcedure, U parameters)
+        {
+            List<T> rows = _connection.Query<T>(storedProcedure, parameters,
+                commandType: CommandType.StoredProcedure, transaction: _transaction).ToList();
+
+            return rows;
+        }
+
+        public void SaveDataInTransaction<T>(string storedProcedure, T parameters)
+        {
+            _connection.Execute(storedProcedure, parameters,
+                commandType: CommandType.StoredProcedure, transaction: _transaction);
+        }
+
+        public void CommitTransaction()
+        {
+            _transaction?.Commit();
+            _connection?.Close();
+
+            isClosed = true;
+        }
+
+        //Usówa wszystkie zmiany zamiast ich zatwierdzania
+        public void RollbackTransaction()
+        {
+            _transaction?.Rollback();
+            _connection?.Close();
+
+            isClosed = true;
+        }
+
+        //Po zakończeniu pozbywa się połącznia z db
+        public void Dispose()
+        {
+            if (!isClosed)
+            {
+                try
+                {
+                    CommitTransaction();
+                }
+                catch (Exception ex)
+                {
+                    //Log dis isszszue
+                    //_logger.LogError(ex, "Commit Transaction failed in the dispose method");
+                }
+            }
+
+            _transaction = null;
+            _connection = null;
         }
     }
 }

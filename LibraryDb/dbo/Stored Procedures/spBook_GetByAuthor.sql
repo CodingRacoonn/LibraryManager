@@ -6,5 +6,5 @@ BEGIN
 	SET NOCOUNT ON
 	SELECT Id, Title, [Description], AuthorFirstName, AuthorLastName, Publisher, ReleaseDate, Quantity, AvailableQuantity
 	FROM dbo.Book
-	WHERE AuthorFirstName = @AuthorFirstName OR @AuthorLastName = AuthorLastName
+	WHERE AuthorFirstName LIKE @AuthorFirstName + '%' OR AuthorFirstName LIKE '% ' + @AuthorFirstName + '%' OR AuthorLastName LIKE @AuthorLastName + '%' OR AuthorLastName LIKE '% ' + @AuthorLastName + '%'
 END

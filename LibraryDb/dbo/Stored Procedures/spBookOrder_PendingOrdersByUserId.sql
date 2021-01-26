@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spBookOrder_GetByUserId]
+﻿CREATE PROCEDURE [dbo].[spBookOrder_PendingOrdersByUserId]
 	@UserId NVARCHAR (450)
 AS
 BEGIN
@@ -7,7 +7,6 @@ BEGIN
 	SELECT bo.OrderDate, b.Title, b.AuthorFirstName, b.AuthorLastName, b.Publisher 
 	FROM dbo.BookOrder AS bo
 	INNER JOIN dbo.Book AS b ON bo.BookId = b.Id
-	INNER JOIN dbo.[User] AS u ON bo.UserId = u.Id
-	WHERE u.Id = @UserId;
+	WHERE bo.UserId = @UserId and bo.OrderComplete = 0;
 
 END

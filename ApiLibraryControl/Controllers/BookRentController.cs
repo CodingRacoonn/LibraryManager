@@ -28,6 +28,20 @@ namespace ApiLibraryControl.Controllers
             _data.AddBookRent(model);
         }
 
+        [Route("ProlongReturnDate")]
+        [HttpPost]
+        public void ProlongReturnDate(BookRentModel model)
+        {
+            _data.ProlongReturnDate(model);
+        }
+
+        [Route("BookReturned")]
+        [HttpPost]
+        public void BookReturned(BookRentModel model)
+        {
+            _data.BookReturned(model);
+        }
+
 
         [Route("GetByUserId/{userid}")]
         [HttpGet]

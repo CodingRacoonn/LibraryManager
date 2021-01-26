@@ -3,5 +3,8 @@
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [UserId] NVARCHAR(450) NOT NULL, 
     [BookId] INT NOT NULL, 
-    [OrderDate] DATETIME2 NOT NULL DEFAULT getutcdate()
+    [OrderDate] DATETIME2 NOT NULL DEFAULT getutcdate(), 
+    [OrderComplete] BIT NOT NULL DEFAULT 0, 
+    CONSTRAINT [FK_BookOrder_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id]) ON DELETE CASCADE, 
+    CONSTRAINT [FK_BookOrder_ToBook] FOREIGN KEY ([BookId]) REFERENCES [Book]([Id]) ON DELETE CASCADE
 )

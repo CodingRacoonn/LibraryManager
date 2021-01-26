@@ -4,7 +4,7 @@
 AS
 BEGIN
 	SET NOCOUNT ON;
-	INSERT INTO dbo.BookRent(BookId, UserId)
+	INSERT INTO dbo.BookOrder(BookId, UserId)
 	VALUES (@BookId, @UserId);
 
 	UPDATE dbo.Book
