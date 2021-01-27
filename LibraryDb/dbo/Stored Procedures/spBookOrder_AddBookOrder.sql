@@ -3,7 +3,8 @@
 	@UserId NVARCHAR (450)
 AS
 BEGIN
-	SET NOCOUNT ON;
+	SET NOCOUNT ON
+
 	INSERT INTO dbo.BookOrder(BookId, UserId)
 	VALUES (@BookId, @UserId);
 

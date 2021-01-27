@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ApiLibraryControl.Controllers
 {
-    //[Authorize(Roles = "Admin,")]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BookController : ControllerBase
@@ -62,6 +62,7 @@ namespace ApiLibraryControl.Controllers
             return books;
         }
 
+        [Authorize(Roles = "Admin,Manager,Librarian")]
         [Route("AddBook")]
         [HttpPost]
         public void AddBook(BookModel model)

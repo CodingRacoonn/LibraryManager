@@ -1,5 +1,6 @@
 ﻿using ApiLibraryControl.Library.DataAccess;
 using ApiLibraryControl.Library.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ApiLibraryControl.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BookRentController : ControllerBase
@@ -20,7 +22,7 @@ namespace ApiLibraryControl.Controllers
             _data = data;
         }
 
-
+        [Authorize(Roles = "Admin,Manager,Librarian")]
         [Route("AddBookRent")]
         [HttpPost]
         public void AddBookRent(BookRentModel model)
@@ -35,6 +37,7 @@ namespace ApiLibraryControl.Controllers
             _data.ProlongReturnDate(model);
         }
 
+        [Authorize(Roles = "Admin,Manager,Librarian")]
         [Route("BookReturned")]
         [HttpPost]
         public void BookReturned(BookRentModel model)

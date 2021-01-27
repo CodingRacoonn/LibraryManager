@@ -1,5 +1,6 @@
 ﻿using ApiLibraryControl.Library.DataAccess;
 using ApiLibraryControl.Library.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ApiLibraryControl.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BookOrderController : ControllerBase
@@ -19,7 +21,6 @@ namespace ApiLibraryControl.Controllers
         {
             _data = data;
         }
-
 
         [Route("AddBookOrder")]
         [HttpPost]
@@ -35,6 +36,13 @@ namespace ApiLibraryControl.Controllers
         {
             var output = _data.GetByUserId(userId);
             return output;
+        }
+
+        [Route("CancelOrder")]
+        [HttpPost]
+        public void CancelOrder(BookOrderModel model)
+        {
+            _data.CancelOrder(model);
         }
     }
 }

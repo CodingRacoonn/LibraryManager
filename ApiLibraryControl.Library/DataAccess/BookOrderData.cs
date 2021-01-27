@@ -34,5 +34,10 @@ namespace ApiLibraryControl.Library.DataAccess
             var output = _dataAccess.LoadData<BookOrderInfoModel, dynamic>("spBookOrder_PendingOrdersByUserId", new { userId }, "LibraryDatabase");
             return output;
         }
+
+        public void CancelOrder(BookOrderModel model)
+        {
+            _dataAccess.SaveData("spBookOrder_OrderCompleted", new { model.BookId, model.UserId }, "LibraryDatabase");
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace ApiLibraryControl.Controllers
 
 
 
-            //string[] roles = { "Admin", "Librarian", "Client" };
+            //string[] roles = { "Manager"};
 
             //foreach (var rolem in roles)
             //{
