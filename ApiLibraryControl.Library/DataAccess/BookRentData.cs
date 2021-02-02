@@ -15,7 +15,7 @@ namespace ApiLibraryControl.Library.DataAccess
             _dataAccess = dataAccess;
         }
 
-        public void AddBookRent(BookRentModel model)
+        public void AddBookRent(BookRentSetupModel model)
         {
             try
             {
@@ -55,12 +55,12 @@ namespace ApiLibraryControl.Library.DataAccess
 
         }
 
-        public void ProlongReturnDate(BookRentModel model)
+        public void ProlongReturnDate(BookRentSetupModel model)
         {
             _dataAccess.SaveData("spBookRent_ProlongReturnDate", new { model.BookId, model.UserId, model.ExpectedReturnDate }, "LibraryDatabase");
         }
 
-        public void BookReturned(BookRentModel model)
+        public void BookReturned(BookRentSetupModel model)
         {
             _dataAccess.SaveData("spBookRent_BookReturned", new { model.BookId, model.UserId}, "LibraryDatabase");
         }

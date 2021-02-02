@@ -4,11 +4,10 @@ using System.Text;
 
 namespace ApiLibraryControl.Library.Models
 {
-    public class PenaltyModel
+    public class BookRentSetupModel
     {
-        public int BookRentId { get; set; }
         public int BookId { get; set; }
         public string UserId { get; set; }
-        public decimal Payment { get; set; }
+        public DateTime ExpectedReturnDate { get; set; }
     }
 }

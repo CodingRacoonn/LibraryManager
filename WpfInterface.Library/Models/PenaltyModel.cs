@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ApiLibraryControl.Library.Models
+namespace WpfInterface.Library.Models
 {
     public class PenaltyModel
     {

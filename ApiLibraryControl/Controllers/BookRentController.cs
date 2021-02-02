@@ -25,14 +25,14 @@ namespace ApiLibraryControl.Controllers
         [Authorize(Roles = "Admin,Manager,Librarian")]
         [Route("AddBookRent")]
         [HttpPost]
-        public void AddBookRent(BookRentModel model)
+        public void AddBookRent(BookRentSetupModel model)
         {
             _data.AddBookRent(model);
         }
 
         [Route("ProlongReturnDate")]
         [HttpPost]
-        public void ProlongReturnDate(BookRentModel model)
+        public void ProlongReturnDate(BookRentSetupModel model)
         {
             _data.ProlongReturnDate(model);
         }
@@ -40,7 +40,7 @@ namespace ApiLibraryControl.Controllers
         [Authorize(Roles = "Admin,Manager,Librarian")]
         [Route("BookReturned")]
         [HttpPost]
-        public void BookReturned(BookRentModel model)
+        public void BookReturned(BookRentSetupModel model)
         {
             _data.BookReturned(model);
         }

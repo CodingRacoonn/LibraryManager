@@ -24,9 +24,16 @@ namespace ApiLibraryControl.Controllers
 
         [Route("AddBookOrder")]
         [HttpPost]
-        public void AddBookOrder(BookOrderModel model)
+        public void AddBookOrder(BookOrderSetupModel model)
         {
             _data.AddBookOrder(model);
+        }
+
+        [Route("CancelOrder")]
+        [HttpPost]
+        public void CancelOrder(BookOrderSetupModel model)
+        {
+            _data.CancelOrder(model);
         }
 
 
@@ -36,13 +43,6 @@ namespace ApiLibraryControl.Controllers
         {
             var output = _data.GetByUserId(userId);
             return output;
-        }
-
-        [Route("CancelOrder")]
-        [HttpPost]
-        public void CancelOrder(BookOrderModel model)
-        {
-            _data.CancelOrder(model);
         }
     }
 }

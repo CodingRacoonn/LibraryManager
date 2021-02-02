@@ -4,11 +4,9 @@ using System.Text;
 
 namespace ApiLibraryControl.Library.Models
 {
-    public class BookOrderModel
+    public class BookOrderSetupModel
     {
         public int BookId { get; set; }
         public string UserId { get; set; }
-        public DateTime OrderDate { get; set; }
-        public bool OrderComplete { get; set; }
     }
 }

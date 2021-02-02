@@ -5,9 +5,9 @@ namespace ApiLibraryControl.Library.DataAccess
 {
     public interface IBookRentData
     {
-        void AddBookRent(BookRentModel model);
-        void BookReturned(BookRentModel model);
+        void AddBookRent(BookRentSetupModel model);
+        void BookReturned(BookRentSetupModel model);
         List<BookRentInfoModel> GetByUserId(string id);
-        void ProlongReturnDate(BookRentModel model);
+        void ProlongReturnDate(BookRentSetupModel model);
     }
 }

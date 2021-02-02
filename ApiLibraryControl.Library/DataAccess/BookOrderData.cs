@@ -15,7 +15,7 @@ namespace ApiLibraryControl.Library.DataAccess
             _dataAccess = dataAccess;
         }
 
-        public void AddBookOrder(BookOrderModel model)
+        public void AddBookOrder(BookOrderSetupModel model)
         {
             int? availableQuantity = _dataAccess.LoadData<int, dynamic>("spBook_CheckAQById", new { Id = model.BookId }, "LibraryDatabase").FirstOrDefault();
 
@@ -35,7 +35,7 @@ namespace ApiLibraryControl.Library.DataAccess
             return output;
         }
 
-        public void CancelOrder(BookOrderModel model)
+        public void CancelOrder(BookOrderSetupModel model)
         {
             _dataAccess.SaveData("spBookOrder_OrderCompleted", new { model.BookId, model.UserId }, "LibraryDatabase");
         }

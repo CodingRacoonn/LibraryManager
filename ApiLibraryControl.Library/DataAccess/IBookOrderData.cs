@@ -5,8 +5,8 @@ namespace ApiLibraryControl.Library.DataAccess
 {
     public interface IBookOrderData
     {
-        void AddBookOrder(BookOrderModel model);
-        void CancelOrder(BookOrderModel model);
+        void AddBookOrder(BookOrderSetupModel model);
+        void CancelOrder(BookOrderSetupModel model);
         List<BookOrderInfoModel> GetByUserId(string userId);
     }
 }
